@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  OnboardingScreenView.swift
 //  NeoTour-iosDDS
 //
 //  Created by Dmitry on 09.04.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class OnboardingScreenView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
