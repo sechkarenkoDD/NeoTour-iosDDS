@@ -7,23 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51EAEAA0128B627B4F8376F8 /* Pods_NeoTour_iosDDS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135AACC204A54FEC1F222253 /* Pods_NeoTour_iosDDS.framework */; };
 		903E9DDB2BC59FC400A7C88D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E9DDA2BC59FC400A7C88D /* AppDelegate.swift */; };
 		903E9DDD2BC59FC400A7C88D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E9DDC2BC59FC400A7C88D /* SceneDelegate.swift */; };
-		903E9DDF2BC59FC400A7C88D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E9DDE2BC59FC400A7C88D /* ViewController.swift */; };
-		903E9DE22BC59FC400A7C88D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 903E9DE12BC59FC400A7C88D /* Base */; };
-		903E9DE42BC59FC500A7C88D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 903E9DE32BC59FC500A7C88D /* Assets.xcassets */; };
+		903E9DDF2BC59FC400A7C88D /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E9DDE2BC59FC400A7C88D /* OnboardingScreenView.swift */; };
 		903E9DE72BC59FC500A7C88D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 903E9DE62BC59FC500A7C88D /* Base */; };
+		904AA3F22BC5B2CF00922C34 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904AA3F12BC5B2CF00922C34 /* UIColor.swift */; };
+		904AA4072BC5C4F000922C34 /* SF-Pro-Display-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA4042BC5C2EA00922C34 /* SF-Pro-Display-RegularItalic.otf */; };
+		904AA4082BC5C4F000922C34 /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3F42BC5C2EA00922C34 /* SF-Pro-Display-Ultralight.otf */; };
+		904AA4092BC5C4F000922C34 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3F82BC5C2EA00922C34 /* SF-Pro-Display-Bold.otf */; };
+		904AA40A2BC5C4F000922C34 /* SF-Pro-Display-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3FC2BC5C2EA00922C34 /* SF-Pro-Display-BoldItalic.otf */; };
+		904AA40B2BC5C4F000922C34 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3FB2BC5C2EA00922C34 /* SF-Pro-Display-Black.otf */; };
+		904AA40C2BC5C4F000922C34 /* SF-Pro-Display-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3FA2BC5C2EA00922C34 /* SF-Pro-Display-LightItalic.otf */; };
+		904AA40D2BC5C4F000922C34 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3F72BC5C2EA00922C34 /* SF-Pro-Display-Medium.otf */; };
+		904AA40E2BC5C4F000922C34 /* SF-Pro-Display-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA4012BC5C2EA00922C34 /* SF-Pro-Display-MediumItalic.otf */; };
+		904AA40F2BC5C4F000922C34 /* SF-Pro-Display-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3F62BC5C2EA00922C34 /* SF-Pro-Display-SemiboldItalic.otf */; };
+		904AA4102BC5C4F000922C34 /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3F52BC5C2EA00922C34 /* SF-Pro-Display-Thin.otf */; };
+		904AA4112BC5C4F000922C34 /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA4022BC5C2EA00922C34 /* SF-Pro-Display-Heavy.otf */; };
+		904AA4122BC5C4F000922C34 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3FE2BC5C2EA00922C34 /* SF-Pro-Display-Semibold.otf */; };
+		904AA4132BC5C4F000922C34 /* SF-Pro-Display-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3FF2BC5C2EA00922C34 /* SF-Pro-Display-UltralightItalic.otf */; };
+		904AA4142BC5C4F000922C34 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA4002BC5C2EA00922C34 /* SF-Pro-Display-Light.otf */; };
+		904AA4152BC5C4F000922C34 /* SF-Pro-Display-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA4052BC5C2EA00922C34 /* SF-Pro-Display-BlackItalic.otf */; };
+		904AA4162BC5C4F000922C34 /* SF-Pro-Display-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3FD2BC5C2EA00922C34 /* SF-Pro-Display-HeavyItalic.otf */; };
+		904AA4172BC5C4F000922C34 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA4032BC5C2EA00922C34 /* SF-Pro-Display-Regular.otf */; };
+		904AA4182BC5C4F000922C34 /* SF-Pro-Display-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 904AA3F92BC5C2EA00922C34 /* SF-Pro-Display-ThinItalic.otf */; };
+		904AA41A2BC5E53400922C34 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904AA4192BC5E53400922C34 /* MainView.swift */; };
+		904AA41D2BC71B7000922C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 904AA41C2BC71B7000922C34 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		135AACC204A54FEC1F222253 /* Pods_NeoTour_iosDDS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeoTour_iosDDS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42CE67BD97228D71B5E939B3 /* Pods-NeoTour-iosDDS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoTour-iosDDS.release.xcconfig"; path = "Target Support Files/Pods-NeoTour-iosDDS/Pods-NeoTour-iosDDS.release.xcconfig"; sourceTree = "<group>"; };
+		8A090F0D54B5D2F8EC880AE1 /* Pods-NeoTour-iosDDS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeoTour-iosDDS.debug.xcconfig"; path = "Target Support Files/Pods-NeoTour-iosDDS/Pods-NeoTour-iosDDS.debug.xcconfig"; sourceTree = "<group>"; };
 		903E9DD72BC59FC400A7C88D /* NeoTour-iosDDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NeoTour-iosDDS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		903E9DDA2BC59FC400A7C88D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		903E9DDC2BC59FC400A7C88D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		903E9DDE2BC59FC400A7C88D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		903E9DE12BC59FC400A7C88D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		903E9DE32BC59FC500A7C88D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		903E9DDE2BC59FC400A7C88D /* OnboardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		903E9DE62BC59FC500A7C88D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		903E9DE82BC59FC500A7C88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		904AA3F12BC5B2CF00922C34 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		904AA3F42BC5C2EA00922C34 /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		904AA3F52BC5C2EA00922C34 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
+		904AA3F62BC5C2EA00922C34 /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		904AA3F72BC5C2EA00922C34 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		904AA3F82BC5C2EA00922C34 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		904AA3F92BC5C2EA00922C34 /* SF-Pro-Display-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-ThinItalic.otf"; sourceTree = "<group>"; };
+		904AA3FA2BC5C2EA00922C34 /* SF-Pro-Display-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-LightItalic.otf"; sourceTree = "<group>"; };
+		904AA3FB2BC5C2EA00922C34 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
+		904AA3FC2BC5C2EA00922C34 /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
+		904AA3FD2BC5C2EA00922C34 /* SF-Pro-Display-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-HeavyItalic.otf"; sourceTree = "<group>"; };
+		904AA3FE2BC5C2EA00922C34 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		904AA3FF2BC5C2EA00922C34 /* SF-Pro-Display-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-UltralightItalic.otf"; sourceTree = "<group>"; };
+		904AA4002BC5C2EA00922C34 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		904AA4012BC5C2EA00922C34 /* SF-Pro-Display-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-MediumItalic.otf"; sourceTree = "<group>"; };
+		904AA4022BC5C2EA00922C34 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
+		904AA4032BC5C2EA00922C34 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		904AA4042BC5C2EA00922C34 /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
+		904AA4052BC5C2EA00922C34 /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
+		904AA4192BC5E53400922C34 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = "/Users/dmitrijseckarenko/Developer/Neobis/NeoTour-iosDDS/NeoTour-iosDDS/MainView.swift"; sourceTree = "<absolute>"; };
+		904AA41C2BC71B7000922C34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "NeoTour-iosDDS/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +73,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51EAEAA0128B627B4F8376F8 /* Pods_NeoTour_iosDDS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		033A8721D7A7AFBA33F95B0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A090F0D54B5D2F8EC880AE1 /* Pods-NeoTour-iosDDS.debug.xcconfig */,
+				42CE67BD97228D71B5E939B3 /* Pods-NeoTour-iosDDS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		1DEAE16E3A2794AFF9BF02BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				135AACC204A54FEC1F222253 /* Pods_NeoTour_iosDDS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		903E9DCE2BC59FC400A7C88D = {
 			isa = PBXGroup;
 			children = (
 				903E9DD92BC59FC400A7C88D /* NeoTour-iosDDS */,
 				903E9DD82BC59FC400A7C88D /* Products */,
+				033A8721D7A7AFBA33F95B0C /* Pods */,
+				1DEAE16E3A2794AFF9BF02BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +118,74 @@
 		903E9DD92BC59FC400A7C88D /* NeoTour-iosDDS */ = {
 			isa = PBXGroup;
 			children = (
-				903E9DDA2BC59FC400A7C88D /* AppDelegate.swift */,
-				903E9DDC2BC59FC400A7C88D /* SceneDelegate.swift */,
-				903E9DDE2BC59FC400A7C88D /* ViewController.swift */,
-				903E9DE02BC59FC400A7C88D /* Main.storyboard */,
-				903E9DE32BC59FC500A7C88D /* Assets.xcassets */,
+				903E9DEF2BC5A12A00A7C88D /* OnboardingScreenView */,
+				904AA41B2BC5E53700922C34 /* MainView */,
+				904AA3F32BC5B2DE00922C34 /* Extension */,
+				903E9DEE2BC5A11300A7C88D /* App */,
 				903E9DE52BC59FC500A7C88D /* LaunchScreen.storyboard */,
-				903E9DE82BC59FC500A7C88D /* Info.plist */,
 			);
 			path = "NeoTour-iosDDS";
+			sourceTree = "<group>";
+		};
+		903E9DEE2BC5A11300A7C88D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				904AA4062BC5C2EF00922C34 /* Fonts */,
+				903E9DDA2BC59FC400A7C88D /* AppDelegate.swift */,
+				903E9DDC2BC59FC400A7C88D /* SceneDelegate.swift */,
+				903E9DE82BC59FC500A7C88D /* Info.plist */,
+				904AA41C2BC71B7000922C34 /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		903E9DEF2BC5A12A00A7C88D /* OnboardingScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				903E9DDE2BC59FC400A7C88D /* OnboardingScreenView.swift */,
+			);
+			path = OnboardingScreenView;
+			sourceTree = "<group>";
+		};
+		904AA3F32BC5B2DE00922C34 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				904AA3F12BC5B2CF00922C34 /* UIColor.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		904AA4062BC5C2EF00922C34 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				904AA3FB2BC5C2EA00922C34 /* SF-Pro-Display-Black.otf */,
+				904AA4052BC5C2EA00922C34 /* SF-Pro-Display-BlackItalic.otf */,
+				904AA3F82BC5C2EA00922C34 /* SF-Pro-Display-Bold.otf */,
+				904AA3FC2BC5C2EA00922C34 /* SF-Pro-Display-BoldItalic.otf */,
+				904AA4022BC5C2EA00922C34 /* SF-Pro-Display-Heavy.otf */,
+				904AA3FD2BC5C2EA00922C34 /* SF-Pro-Display-HeavyItalic.otf */,
+				904AA4002BC5C2EA00922C34 /* SF-Pro-Display-Light.otf */,
+				904AA3FA2BC5C2EA00922C34 /* SF-Pro-Display-LightItalic.otf */,
+				904AA3F72BC5C2EA00922C34 /* SF-Pro-Display-Medium.otf */,
+				904AA4012BC5C2EA00922C34 /* SF-Pro-Display-MediumItalic.otf */,
+				904AA4032BC5C2EA00922C34 /* SF-Pro-Display-Regular.otf */,
+				904AA4042BC5C2EA00922C34 /* SF-Pro-Display-RegularItalic.otf */,
+				904AA3FE2BC5C2EA00922C34 /* SF-Pro-Display-Semibold.otf */,
+				904AA3F62BC5C2EA00922C34 /* SF-Pro-Display-SemiboldItalic.otf */,
+				904AA3F52BC5C2EA00922C34 /* SF-Pro-Display-Thin.otf */,
+				904AA3F92BC5C2EA00922C34 /* SF-Pro-Display-ThinItalic.otf */,
+				904AA3F42BC5C2EA00922C34 /* SF-Pro-Display-Ultralight.otf */,
+				904AA3FF2BC5C2EA00922C34 /* SF-Pro-Display-UltralightItalic.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		904AA41B2BC5E53700922C34 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				904AA4192BC5E53400922C34 /* MainView.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 903E9DEB2BC59FC500A7C88D /* Build configuration list for PBXNativeTarget "NeoTour-iosDDS" */;
 			buildPhases = (
+				BDDB6656F9DDCAC36B13CB00 /* [CP] Check Pods Manifest.lock */,
 				903E9DD32BC59FC400A7C88D /* Sources */,
 				903E9DD42BC59FC400A7C88D /* Frameworks */,
 				903E9DD52BC59FC400A7C88D /* Resources */,
+				B854A168DD5E779FBB157111 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,36 +248,89 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				903E9DE42BC59FC500A7C88D /* Assets.xcassets in Resources */,
+				904AA4072BC5C4F000922C34 /* SF-Pro-Display-RegularItalic.otf in Resources */,
+				904AA4082BC5C4F000922C34 /* SF-Pro-Display-Ultralight.otf in Resources */,
+				904AA4092BC5C4F000922C34 /* SF-Pro-Display-Bold.otf in Resources */,
+				904AA40A2BC5C4F000922C34 /* SF-Pro-Display-BoldItalic.otf in Resources */,
+				904AA40B2BC5C4F000922C34 /* SF-Pro-Display-Black.otf in Resources */,
+				904AA40C2BC5C4F000922C34 /* SF-Pro-Display-LightItalic.otf in Resources */,
+				904AA40D2BC5C4F000922C34 /* SF-Pro-Display-Medium.otf in Resources */,
+				904AA40E2BC5C4F000922C34 /* SF-Pro-Display-MediumItalic.otf in Resources */,
+				904AA40F2BC5C4F000922C34 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
+				904AA4102BC5C4F000922C34 /* SF-Pro-Display-Thin.otf in Resources */,
+				904AA4112BC5C4F000922C34 /* SF-Pro-Display-Heavy.otf in Resources */,
+				904AA4122BC5C4F000922C34 /* SF-Pro-Display-Semibold.otf in Resources */,
+				904AA4132BC5C4F000922C34 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
+				904AA4142BC5C4F000922C34 /* SF-Pro-Display-Light.otf in Resources */,
+				904AA41D2BC71B7000922C34 /* Assets.xcassets in Resources */,
+				904AA4152BC5C4F000922C34 /* SF-Pro-Display-BlackItalic.otf in Resources */,
+				904AA4162BC5C4F000922C34 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
+				904AA4172BC5C4F000922C34 /* SF-Pro-Display-Regular.otf in Resources */,
+				904AA4182BC5C4F000922C34 /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				903E9DE72BC59FC500A7C88D /* Base in Resources */,
-				903E9DE22BC59FC400A7C88D /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B854A168DD5E779FBB157111 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NeoTour-iosDDS/Pods-NeoTour-iosDDS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NeoTour-iosDDS/Pods-NeoTour-iosDDS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NeoTour-iosDDS/Pods-NeoTour-iosDDS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDDB6656F9DDCAC36B13CB00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NeoTour-iosDDS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		903E9DD32BC59FC400A7C88D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				903E9DDF2BC59FC400A7C88D /* ViewController.swift in Sources */,
+				904AA41A2BC5E53400922C34 /* MainView.swift in Sources */,
+				903E9DDF2BC59FC400A7C88D /* OnboardingScreenView.swift in Sources */,
 				903E9DDB2BC59FC400A7C88D /* AppDelegate.swift in Sources */,
 				903E9DDD2BC59FC400A7C88D /* SceneDelegate.swift in Sources */,
+				904AA3F22BC5B2CF00922C34 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		903E9DE02BC59FC400A7C88D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				903E9DE12BC59FC400A7C88D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		903E9DE52BC59FC500A7C88D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -203,7 +379,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -218,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -266,7 +442,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -275,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -287,6 +463,7 @@
 		};
 		903E9DEC2BC59FC500A7C88D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A090F0D54B5D2F8EC880AE1 /* Pods-NeoTour-iosDDS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,12 +471,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S3448RJL2F;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "NeoTour-iosDDS/Info.plist";
+				INFOPLIST_FILE = "NeoTour-iosDDS/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,14 +484,19 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.sechkarenkoDD.NeoTour-iosDDS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		903E9DED2BC59FC500A7C88D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42CE67BD97228D71B5E939B3 /* Pods-NeoTour-iosDDS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,12 +504,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S3448RJL2F;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "NeoTour-iosDDS/Info.plist";
+				INFOPLIST_FILE = "NeoTour-iosDDS/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +517,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.sechkarenkoDD.NeoTour-iosDDS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

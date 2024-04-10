@@ -17,8 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        let viewController = OnboardingScreenView()
-        window?.rootViewController = viewController
+        window?.rootViewController = UINavigationController(rootViewController: OnboardingScreenView())
         window?.makeKeyAndVisible()
     }
 
