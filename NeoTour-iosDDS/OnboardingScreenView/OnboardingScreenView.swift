@@ -10,14 +10,14 @@ import SnapKit
 
 class OnboardingScreenView: UIViewController {
     
-    private let mainImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "home")
-        imageView.layer.cornerRadius = 37
-        imageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        imageView.contentMode = .scaleAspectFill
-        return imageView
+    private let image: UIImageView = {
+        let image = UIImageView()
+        image.clipsToBounds = true
+        image.image = UIImage(named: "home")
+        image.layer.cornerRadius = 37
+        image.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        image.contentMode = .scaleAspectFill
+        return image
     }()
     
     private let titleLabel: UILabel = {
@@ -65,19 +65,19 @@ class OnboardingScreenView: UIViewController {
     }
     
     private func setupConstraints() {
-        view.addSubview(mainImage)
+        view.addSubview(image)
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(goButton)
         
-        mainImage.snp.makeConstraints { make in
+        image.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalToSuperview().dividedBy(2)
         }
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
-            make.bottom.equalTo(mainImage).inset(-86 - 32)
+            make.bottom.equalTo(image).inset(-86 - 32)
             make.width.equalTo(283)
             make.height.equalTo(86)
         }
