@@ -30,8 +30,12 @@ class CategoriesCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(titleCategories)
-        contentView.addSubview(pointUnderSelectedTitle)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        addSubview(titleCategories)
+        addSubview(pointUnderSelectedTitle)
         
         titleCategories.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -43,7 +47,6 @@ class CategoriesCell: UICollectionViewCell {
             make.top.equalTo(titleCategories)
             make.height.width.equalTo(7)
         }
-
     }
     
     required init?(coder: NSCoder) {

@@ -1,5 +1,5 @@
 //
-//  OnboardingScreenView.swift
+//  OnboardingScreenViewController.swift
 //  NeoTour-iosDDS
 //
 //  Created by Dmitry on 09.04.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class OnboardingScreenView: UIViewController {
+class OnboardingScreenViewController: UIViewController {
     
     private let image: UIImageView = {
         let image = UIImageView()
@@ -39,7 +39,11 @@ class OnboardingScreenView: UIViewController {
         )
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 7
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(
+            NSAttributedString.Key.paragraphStyle,
+            value: paragraphStyle,
+            range: NSRange(location: 0, length: attributedString.length)
+        )
         label.attributedText = attributedString
         label.font = UIFont(name: "SFProDisplay-Light", size: 16)
         label.numberOfLines = 0
@@ -102,7 +106,7 @@ class OnboardingScreenView: UIViewController {
     }
     
     @objc func goButtonTapped() {
-        let mainVC = MainView()
+        let mainVC = MainViewController()
         navigationController?.pushViewController(mainVC, animated: true)
         
     }
