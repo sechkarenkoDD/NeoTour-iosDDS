@@ -11,6 +11,12 @@ import SnapKit
 class CategoriesCell: UICollectionViewCell {
     static let id = "CategoriesCell"
     
+    var viewModel: CategoryCellViewModelProtocol! {
+        didSet {
+            titleCategories.text = viewModel.title
+        }
+    }
+    
     let titleCategories: UILabel = {
         let title = UILabel()
         title.backgroundColor = .clear

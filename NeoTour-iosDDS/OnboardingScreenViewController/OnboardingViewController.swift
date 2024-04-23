@@ -10,10 +10,15 @@ import SnapKit
 
 class OnboardingViewController: UIViewController {
     
+    var viewModel: OnboardingViewModelProtocol! {
+        didSet {
+            image.image = UIImage(named: viewModel.imageName)
+        }
+    }
+    
     private let image: UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
-        image.image = UIImage(named: "home")
         image.layer.cornerRadius = 37
         image.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         image.contentMode = .scaleAspectFill
@@ -66,6 +71,7 @@ class OnboardingViewController: UIViewController {
         view.backgroundColor = .white
         setupConstraints()
         setupTargetAction()
+        viewModel = OnboardingViewModel()
     }
     
     private func setupConstraints() {
@@ -106,8 +112,9 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc func goButtonTapped() {
-        let mainVC = MainViewController()
-        navigationController?.pushViewController(mainVC, animated: true)
+        let mainViewController = MainViewController()
+        mainViewController.viewModel = viewModel.getMainViewModel()
+        navigationController?.pushViewController(mainViewController, animated: true)
         
     }
     

@@ -12,7 +12,14 @@ struct Category: Hashable {
     var title: String
     
     static func getCategories() -> [Category] {
-        return [Category(id: 0, title: "Popular"), Category(id: 1, title: "Featured"), Category(id: 2, title: "Most visited"), Category(id: 3, title: "Europe"), Category(id: 4, title: "Asia")]
+        let categories = [
+            Category(id: 0, title: "Popular"),
+            Category(id: 1, title: "Featured"),
+            Category(id: 2, title: "Most visited"),
+            Category(id: 3, title: "Europe"),
+            Category(id: 4, title: "Asia")
+        ]
+        return categories
     }
     
     func hash(into hasher: inout Hasher) {

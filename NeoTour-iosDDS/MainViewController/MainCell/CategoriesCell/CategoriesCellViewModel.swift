@@ -6,3 +6,21 @@
 //
 
 import Foundation
+
+protocol CategoryCellViewModelProtocol {
+    var title: String { get }
+    init(category: Category)
+}
+
+class CategoryCellViewModel: CategoryCellViewModelProtocol {
+    
+    var title: String {
+        category.title
+    }
+    
+    private let category: Category
+    
+    required init(category: Category) {
+        self.category = category
+    }
+}

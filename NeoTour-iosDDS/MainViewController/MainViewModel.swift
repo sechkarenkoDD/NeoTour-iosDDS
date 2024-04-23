@@ -6,3 +6,53 @@
 //
 
 import Foundation
+
+protocol MainViewModelProtocol {
+    var forCategories: [Category] { get }
+    var toursForGaleries: [Galery] { get }
+    var toursForRecommendations: [Galery] { get }
+    func getDataForCategoriesCell(at indexPath: IndexPath) -> CategoryCellViewModelProtocol
+    func getDataForGaleryCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol
+    func getDataForRecommendedCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol
+    init(categories: [Category], galeries: [Galery], recommendations: [Galery])
+}
+
+class MainViewModel: MainViewModelProtocol {
+    
+    var forCategories: [Category] {
+        categories
+    }
+    var toursForGaleries: [Galery] {
+        galeries
+    }
+    
+    var toursForRecommendations: [Galery] {
+        recommendations
+    }
+    
+    func getDataForCategoriesCell(at indexPath: IndexPath) -> CategoryCellViewModelProtocol {
+        let category = categories[indexPath.item]
+        return CategoryCellViewModel(category: category)
+    }
+    
+    func getDataForGaleryCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol {
+        let galery = galeries[indexPath.item]
+        return GaleryCellViewModel(galery: galery)
+    }
+    
+    func getDataForRecommendedCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol {
+        let recommended = recommendations[indexPath.item]
+        return GaleryCellViewModel(galery: recommended)
+    }
+    
+    private let categories: [Category]
+    private let galeries: [Galery]
+    private let recommendations: [Galery]
+    
+    required init(categories: [Category], galeries: [Galery], recommendations: [Galery]) {
+        self.categories = categories
+        self.galeries = galeries
+        self.recommendations = recommendations
+    }
+    
+}

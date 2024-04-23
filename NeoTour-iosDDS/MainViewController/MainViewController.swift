@@ -8,29 +8,30 @@
 import UIKit
 import SnapKit
 
-enum Section: Int, CaseIterable {
-    case categoriesTour
-    case galeryTour
-    case recommendedTour
-    
-    var itemCount: Int {
-        switch self {
-        case .categoriesTour: 4
-        case .galeryTour: 1
-        case .recommendedTour: 2
-        }
-    }
-}
-
 class MainViewController: UIViewController {
     static let sectionHeaderElementKind = "section-header-element-kin"
     
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
     private var dataSource: DataSource!
     
+    var viewModel: MainViewModelProtocol!
+    
+    enum Section: Int, CaseIterable {
+        case categoriesTour
+        case galeryTour
+        case recommendedTour
+        
+        var itemCount: Int {
+            switch self {
+            case .categoriesTour: 4
+            case .galeryTour: 1
+            case .recommendedTour: 2
+            }
+        }
+    }
     
     enum Item: Hashable {
-        case category(Categories)
+        case category(Category)
         case galery(Galery)
         case recommended(Galery)
     }
@@ -61,6 +62,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         setupNavigationBar()
         configureCollectionView()
+        configureDataSource()
     }
     
     private func setupNavigationBar() {
@@ -217,27 +219,27 @@ class MainViewController: UIViewController {
                 ) as? CategoriesCell else {
                     fatalError("Failed to dequeue a cell of type categoriesCell")
                 }
-                cell.titleCategories.text = "\(item)"
+                cell.viewModel = self.viewModel.getDataForCategoriesCell(at: indexPath)
                 return cell
             case .galeryTour:
-                guard case .galery(_) = item else {
+                guard case let .galery(data) = item else {
                     fatalError("Invalid item type for galeryTour section")
                 }
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: GaleryCell.id,
                     for: indexPath
                 ) as! GaleryCell
-                //getData
+                cell.viewModel = self.viewModel.getDataForGaleryCell(at: indexPath)
                 return cell
             case .recommendedTour:
-                guard case .recommended(_) = item else {
+                guard case let .recommended(data) = item else {
                     fatalError("Invalid item type for recommendedTour section")
                 }
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: GaleryCell.id,
                     for: indexPath
                 ) as! GaleryCell
-                //getData
+                cell.viewModel = self.viewModel.getDataForRecommendedCell(at: indexPath)
                 return cell
             }
             
@@ -262,9 +264,16 @@ class MainViewController: UIViewController {
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.categoriesTour, .galeryTour, .recommendedTour])
-        snapshot.appendItems(<#T##identifiers: [Item]##[Item]#>, toSection: .categoriesTour)
-        snapshot.appendItems(<#T##identifiers: [Item]##[Item]#>, toSection: .galeryTour)
-        snapshot.appendItems(<#T##identifiers: [Item]##[Item]#>, toSection: .recommendedTour)
+        
+        let categoryItems = viewModel.forCategories
+        snapshot.appendItems(categoryItems.map { Item.category($0) }, toSection: .categoriesTour)
+        
+        let galeryItems = viewModel.toursForGaleries
+        snapshot.appendItems(galeryItems.map { Item.galery($0) }, toSection: .galeryTour)
+        
+        let recommendedItems = viewModel.toursForRecommendations
+        snapshot.appendItems(recommendedItems.map { Item.recommended($0) }, toSection: .recommendedTour)
+        
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 }

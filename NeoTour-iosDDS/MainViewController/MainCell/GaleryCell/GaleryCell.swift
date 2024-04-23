@@ -11,7 +11,15 @@ import SnapKit
 class GaleryCell: UICollectionViewCell {
     static let id = "GaleryCell"
     
-    private let titleLabel: UILabel = {
+    var viewModel: GaleryCellViewModeProtocol! {
+        didSet {
+            title.text = viewModel.title
+            guard let imageData = viewModel.image else { fatalError("imageDara for cell is failed") }
+            image.image = UIImage(data: imageData)
+        }
+    }
+    
+    private let title: UILabel = {
         let title = UILabel()
         title.font = UIFont(name: "SFProDisplay-Semibold", size: 20)
         title.backgroundColor = .clear
@@ -40,13 +48,13 @@ class GaleryCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(image)
         image.addSubview(blackoutBackground)
-        image.addSubview(titleLabel)
+        image.addSubview(title)
         
         image.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
         }
         
-        titleLabel.snp.makeConstraints { make in
+        title.snp.makeConstraints { make in
             make.bottom.equalTo(image).inset(-16)
             make.leading.equalTo(image).inset(-12)
             make.width.equalTo(-30)
