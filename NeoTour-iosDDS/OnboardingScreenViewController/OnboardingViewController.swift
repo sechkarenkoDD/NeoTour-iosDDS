@@ -1,5 +1,5 @@
 //
-//  OnboardingScreenViewController.swift
+//  OnboardingViewController.swift
 //  NeoTour-iosDDS
 //
 //  Created by Dmitry on 09.04.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class OnboardingScreenViewController: UIViewController {
+class OnboardingViewController: UIViewController {
     
     private let image: UIImageView = {
         let image = UIImageView()
