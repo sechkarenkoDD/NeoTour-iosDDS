@@ -20,14 +20,6 @@ class MainViewController: UIViewController {
         case categoriesTour
         case galeryTour
         case recommendedTour
-        
-        var itemCount: Int {
-            switch self {
-            case .categoriesTour: 4
-            case .galeryTour: 1
-            case .recommendedTour: 2
-            }
-        }
     }
     
     enum Item: Hashable {
@@ -80,42 +72,35 @@ class MainViewController: UIViewController {
     
     private func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout {
-            (sectionIndex,
-             layoutEnvironment)
-            -> NSCollectionLayoutSection? in
-            
-            guard let sectionKind = Section(rawValue: sectionIndex) else {
-                fatalError("could not create a sectionKind instance")
-            }
+            (sectionIndex, _) -> NSCollectionLayoutSection? in
             
             let sectionLayoutKind = Section.allCases[sectionIndex]
             switch sectionLayoutKind {
             case .categoriesTour:
-                return self.generateCategoriesLayout(sectionKind.itemCount)
+                return self.generateCategoriesLayout()
             case .galeryTour:
-                return self.generateToursLayout(sectionKind.itemCount)
+                return self.generateToursLayout()
             case .recommendedTour:
-                return self.generateRecommendedTourLayout(sectionKind.itemCount)
+                return self.generateRecommendedTourLayout()
             }
         }
         return layout
     }
     
-    private func generateCategoriesLayout(_ sectionKind: Int) -> NSCollectionLayoutSection {
+    private func generateCategoriesLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.25),
             heightDimension: .fractionalHeight(1)
         )
-        let item = NSCollectionLayoutSupplementaryItem(layoutSize: itemSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.95),
+            widthDimension: .fractionalWidth(0.9),
             heightDimension: .absolute(50)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
-            repeatingSubitem: item,
-            count: sectionKind
+            subitems: [item]
         )
         let groupSpacing: CGFloat = 5
         group.contentInsets = NSDirectionalEdgeInsets(
@@ -132,7 +117,7 @@ class MainViewController: UIViewController {
         
     }
     
-    private func generateToursLayout(_ sectionKind: Int) -> NSCollectionLayoutSection {
+    private func generateToursLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalWidth(2/3)
@@ -140,12 +125,12 @@ class MainViewController: UIViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.95),
+            widthDimension: .fractionalWidth(0.9),
             heightDimension: .fractionalWidth(2/3))
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             repeatingSubitem: item,
-            count: sectionKind
+            count: 1
         )
         let groupSpacing: CGFloat = 5
         group.contentInsets = NSDirectionalEdgeInsets(
@@ -161,7 +146,7 @@ class MainViewController: UIViewController {
         return section
     }
     
-    private func generateRecommendedTourLayout(_ sectionKind: Int) -> NSCollectionLayoutSection {
+    private func generateRecommendedTourLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
             heightDimension: .fractionalHeight(1.0)
@@ -182,12 +167,12 @@ class MainViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             repeatingSubitem: item,
-            count: sectionKind
+            count: 2
         )
         
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(44)
+            heightDimension: .absolute(50)
         )
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
@@ -222,7 +207,7 @@ class MainViewController: UIViewController {
                 cell.viewModel = self.viewModel.getDataForCategoriesCell(at: indexPath)
                 return cell
             case .galeryTour:
-                guard case let .galery(data) = item else {
+                guard case .galery(_) = item else {
                     fatalError("Invalid item type for galeryTour section")
                 }
                 let cell = collectionView.dequeueReusableCell(
@@ -232,7 +217,7 @@ class MainViewController: UIViewController {
                 cell.viewModel = self.viewModel.getDataForGaleryCell(at: indexPath)
                 return cell
             case .recommendedTour:
-                guard case let .recommended(data) = item else {
+                guard case .recommended(_) = item else {
                     fatalError("Invalid item type for recommendedTour section")
                 }
                 let cell = collectionView.dequeueReusableCell(

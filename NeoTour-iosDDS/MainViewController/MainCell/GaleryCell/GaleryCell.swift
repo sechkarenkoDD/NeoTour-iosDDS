@@ -14,8 +14,8 @@ class GaleryCell: UICollectionViewCell {
     var viewModel: GaleryCellViewModeProtocol! {
         didSet {
             title.text = viewModel.title
-            guard let imageData = viewModel.image else { fatalError("imageDara for cell is failed") }
-            image.image = UIImage(data: imageData)
+//            guard let imageData = viewModel.image else { fatalError("imageDara for cell is failed") }
+//            image.image = UIImage(data: imageData)
         }
     }
     
