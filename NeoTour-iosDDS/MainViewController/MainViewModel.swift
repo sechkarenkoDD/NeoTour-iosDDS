@@ -14,7 +14,7 @@ protocol MainViewModelProtocol {
     func getDataForCategoriesCell(at indexPath: IndexPath) -> CategoryCellViewModelProtocol
     func getDataForGaleryCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol
     func getDataForRecommendedCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol
-    init(categories: [Category], galeries: [Tour], recommendations: [Tour])
+    init(categories: [Category], tours: [Tour], recommendations: [Tour])
 }
 
 class MainViewModel: MainViewModelProtocol {
@@ -23,7 +23,7 @@ class MainViewModel: MainViewModelProtocol {
         categories
     }
     var toursForGaleries: [Tour] {
-        galeries
+        tours
     }
     
     var toursForRecommendations: [Tour] {
@@ -36,22 +36,22 @@ class MainViewModel: MainViewModelProtocol {
     }
     
     func getDataForGaleryCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol {
-        let galery = galeries[indexPath.item]
-        return GaleryCellViewModel(galery: galery)
+        let tour = tours[indexPath.item]
+        return GaleryCellViewModel(tour: tour)
     }
     
     func getDataForRecommendedCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol {
         let recommended = recommendations[indexPath.item]
-        return GaleryCellViewModel(galery: recommended)
+        return GaleryCellViewModel(tour: recommended)
     }
     
     private let categories: [Category]
-    private let galeries: [Tour]
+    private let tours: [Tour]
     private let recommendations: [Tour]
     
-    required init(categories: [Category], galeries: [Tour], recommendations: [Tour]) {
+    required init(categories: [Category], tours: [Tour], recommendations: [Tour]) {
         self.categories = categories
-        self.galeries = galeries
+        self.tours = tours
         self.recommendations = recommendations
     }
     

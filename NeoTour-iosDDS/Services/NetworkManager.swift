@@ -24,7 +24,7 @@ class NetworkManager {
     }
     
     func fetchTours(completion: @escaping(Result<[Tour], NetworkError>) -> Void) {
-        let url = "https://pudge-backender.org.kg/tours/"
+        let url = "https://pudge-backender.org.kg/tours/?format=json"
         getData(urlString: url, completion: completion)
     }
 }

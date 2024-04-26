@@ -10,21 +10,21 @@ import Foundation
 protocol GaleryCellViewModeProtocol {
     var image: Data? { get }
     var title: String { get }
-    init(galery: Tour)
+    init(tour: Tour)
 }
 
 class GaleryCellViewModel: GaleryCellViewModeProtocol {
     var image: Data? {
-        ImageManager.shared.fetchImageData(from: galery.image)
+        ImageManager.shared.fetchImageData(from: tour.tourPhoto)
     }
     
     var title: String {
-        galery.title
+        tour.name
     }
     
-    private let galery: Tour
+    private let tour: Tour
     
-    required init(galery: Tour) {
-        self.galery = galery
+    required init(tour: Tour) {
+        self.tour = tour
     }
 }

@@ -10,14 +10,19 @@ import Foundation
 protocol OnboardingViewModelProtocol {
     var imageName: String { get }
     func fetchCategories()
+    func fetchTours()
+    func fetchRecommendations()
     func getMainViewModel() -> MainViewModelProtocol
 }
 
 class OnboardingViewModel: OnboardingViewModelProtocol {
-    
     var imageName: String {
         "home"
     }
+    
+    private var categories: [Category] = []
+    private var tours: [Tour] = []
+    private let recommendations: [Tour] = []
     
     func fetchCategories() {
         NetworkManager.shered.fetchCategories { result in
@@ -30,12 +35,23 @@ class OnboardingViewModel: OnboardingViewModelProtocol {
         }
     }
     
-    private var categories: [Category] = []
-    private let galeries = Tour.getToursForGalery()
-    private let recommendations = Tour.getToursForRecommended()
+    func fetchTours() {
+        NetworkManager.shered.fetchTours { result in
+            switch result {
+            case .success(let tours):
+                self.tours = tours
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func fetchRecommendations() {
+        fetchTours()
+    }
     
     func getMainViewModel() -> MainViewModelProtocol {
-        MainViewModel(categories: categories, galeries: galeries, recommendations: recommendations)
+        MainViewModel(categories: categories, tours: tours, recommendations: recommendations)
     }
     
 }

@@ -15,7 +15,7 @@ protocol TourDetailTopCellViewModelProtocol {
 class TourDetailTopCellViewModel: TourDetailTopCellViewModelProtocol {
     
     var image: Data? {
-        ImageManager.shared.fetchImageData(from: tour.image)
+        ImageManager.shared.fetchImageData(from: tour.tourPhoto)
     }
     
     private let tour: Tour

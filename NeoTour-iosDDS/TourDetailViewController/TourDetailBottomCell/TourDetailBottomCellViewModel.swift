@@ -18,7 +18,7 @@ protocol TourDetailBottomCellViewModelProtocol {
 class TourDetailBottomCellViewModel: TourDetailBottomCellViewModelProtocol {
     
     var title: String {
-        tour.title
+        tour.name
     }
     
     var location: String {
@@ -30,7 +30,7 @@ class TourDetailBottomCellViewModel: TourDetailBottomCellViewModelProtocol {
     }
     
     var comments: [Comment] {
-        tour.comments
+        tour.reviews
     }
     
     private let tour: Tour

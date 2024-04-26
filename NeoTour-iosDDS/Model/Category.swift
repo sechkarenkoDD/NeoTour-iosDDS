@@ -11,6 +11,14 @@ struct Category: Hashable, Decodable {
     var id: Int
     var name: String
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: Category, rhs: Category) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     static func getCategories() -> [Category] {
         let categories = [
             Category(id: 0, name: "Popular"),
@@ -22,13 +30,6 @@ struct Category: Hashable, Decodable {
         return categories
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(identifier)
-    }
     
-    static func == (lhs: Category, rhs: Category) -> Bool {
-        return lhs.identifier == rhs.identifier
-    }
     
-    private var identifier = UUID()
 }

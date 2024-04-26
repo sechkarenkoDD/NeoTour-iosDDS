@@ -14,6 +14,8 @@ class OnboardingViewController: UIViewController {
         didSet {
             image.image = UIImage(named: viewModel.imageName)
             viewModel.fetchCategories()
+            viewModel.fetchTours()
+            viewModel.fetchRecommendations()
         }
     }
     
@@ -112,7 +114,7 @@ class OnboardingViewController: UIViewController {
         goButton.addTarget(self, action: #selector(goButtonTapped), for: .touchUpInside)
     }
     
-    @objc func goButtonTapped() {
+    @objc private func goButtonTapped() {
         let mainViewController = MainViewController()
         mainViewController.viewModel = viewModel.getMainViewModel()
         navigationController?.pushViewController(mainViewController, animated: true)
