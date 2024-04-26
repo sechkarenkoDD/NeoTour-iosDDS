@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class HeaderView: UICollectionReusableView {
-    static let reuseIdentifier = "header-reuse-identifier"
+    static let id = "HeaderView"
     
     let label = UILabel()
     

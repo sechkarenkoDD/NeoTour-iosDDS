@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class MainViewController: UIViewController {
-    static let sectionHeaderElementKind = "section-header-element-kin"
+    static let sectionHeaderRecommended = "SectionHeaderRecommended"
     
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
     private var dataSource: DataSource!
@@ -24,8 +24,8 @@ class MainViewController: UIViewController {
     
     enum Item: Hashable {
         case category(Category)
-        case galery(Galery)
-        case recommended(Galery)
+        case galery(Tour)
+        case recommended(Tour)
     }
     
     private lazy var mainCollectionView: UICollectionView = {
@@ -42,8 +42,8 @@ class MainViewController: UIViewController {
         
         collectionView.register(
             HeaderView.self,
-            forSupplementaryViewOfKind: MainViewController.sectionHeaderElementKind,
-            withReuseIdentifier: HeaderView.reuseIdentifier
+            forSupplementaryViewOfKind: MainViewController.sectionHeaderRecommended,
+            withReuseIdentifier: HeaderView.id
         )
         
         collectionView.indicatorStyle = .black
@@ -102,17 +102,16 @@ class MainViewController: UIViewController {
             layoutSize: groupSize,
             subitems: [item]
         )
-        let groupSpacing: CGFloat = 5
-        group.contentInsets = NSDirectionalEdgeInsets(
-            top: groupSpacing,
-            leading: groupSpacing,
-            bottom: groupSpacing,
-            trailing: groupSpacing
-        )
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-        
+        let sectionSpacing: CGFloat = 8
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: sectionSpacing,
+            bottom: 0,
+            trailing: sectionSpacing
+        )
         return section
         
     }
@@ -132,16 +131,23 @@ class MainViewController: UIViewController {
             repeatingSubitem: item,
             count: 1
         )
-        let groupSpacing: CGFloat = 5
+        let groupSpacing: CGFloat = 6
         group.contentInsets = NSDirectionalEdgeInsets(
-            top: groupSpacing,
+            top: 0,
             leading: groupSpacing,
-            bottom: groupSpacing,
+            bottom: 0,
             trailing: groupSpacing
         )
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
+        let sectionSpacing: CGFloat = 10
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: sectionSpacing,
+            bottom: 0,
+            trailing: sectionSpacing
+        )
         
         return section
     }
@@ -152,7 +158,7 @@ class MainViewController: UIViewController {
             heightDimension: .fractionalHeight(1.0)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let itemSpacing: CGFloat = 5
+        let itemSpacing: CGFloat = 6
         item.contentInsets  = NSDirectionalEdgeInsets(
             top: itemSpacing,
             leading: itemSpacing,
@@ -176,11 +182,18 @@ class MainViewController: UIViewController {
         )
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
-            elementKind: MainViewController.sectionHeaderElementKind,
+            elementKind: MainViewController.sectionHeaderRecommended,
             alignment: .top)
         
         let section = NSCollectionLayoutSection(group: group)
         section.boundarySupplementaryItems = [sectionHeader]
+        let sectionSpacing: CGFloat = 10
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: sectionSpacing,
+            bottom: 0,
+            trailing: sectionSpacing
+        )
         
         return section
     }
@@ -237,7 +250,7 @@ class MainViewController: UIViewController {
             
             guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
-                withReuseIdentifier: HeaderView.reuseIdentifier,
+                withReuseIdentifier: HeaderView.id,
                 for: indexPath) as? HeaderView else {
                 fatalError("Cannot create header view")
             }

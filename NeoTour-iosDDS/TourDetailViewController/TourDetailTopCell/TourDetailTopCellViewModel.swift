@@ -7,10 +7,20 @@
 
 import Foundation
 
-protocol TourDetailsTopCellViewModelProtocol {
-    var image: Data { get }
+protocol TourDetailTopCellViewModelProtocol {
+    var image: Data? { get }
+    init(tour: Tour)
 }
 
-class TourDetailsTopCellViewModel {
+class TourDetailTopCellViewModel: TourDetailTopCellViewModelProtocol {
     
+    var image: Data? {
+        ImageManager.shared.fetchImageData(from: tour.image)
+    }
+    
+    private let tour: Tour
+    
+    required init(tour: Tour) {
+        self.tour = tour
+    }
 }

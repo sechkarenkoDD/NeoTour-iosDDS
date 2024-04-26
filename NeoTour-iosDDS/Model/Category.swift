@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct Category: Hashable {
+struct Category: Hashable, Decodable {
     var id: Int
-    var title: String
+    var name: String
     
     static func getCategories() -> [Category] {
         let categories = [
-            Category(id: 0, title: "Popular"),
-            Category(id: 1, title: "Featured"),
-            Category(id: 2, title: "Most visited"),
-            Category(id: 3, title: "Europe"),
-            Category(id: 4, title: "Asia")
+            Category(id: 0, name: "Popular"),
+            Category(id: 1, name: "Featured"),
+            Category(id: 2, name: "Most visited"),
+            Category(id: 3, name: "Europe"),
+            Category(id: 4, name: "Asia")
         ]
         return categories
     }
@@ -30,5 +30,5 @@ struct Category: Hashable {
         return lhs.identifier == rhs.identifier
     }
     
-    private let identifier = UUID()
+    private var identifier = UUID()
 }

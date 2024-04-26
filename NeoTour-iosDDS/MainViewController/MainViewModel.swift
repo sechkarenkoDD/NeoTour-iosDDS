@@ -9,12 +9,12 @@ import Foundation
 
 protocol MainViewModelProtocol {
     var forCategories: [Category] { get }
-    var toursForGaleries: [Galery] { get }
-    var toursForRecommendations: [Galery] { get }
+    var toursForGaleries: [Tour] { get }
+    var toursForRecommendations: [Tour] { get }
     func getDataForCategoriesCell(at indexPath: IndexPath) -> CategoryCellViewModelProtocol
     func getDataForGaleryCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol
     func getDataForRecommendedCell(at indexPath: IndexPath) -> GaleryCellViewModeProtocol
-    init(categories: [Category], galeries: [Galery], recommendations: [Galery])
+    init(categories: [Category], galeries: [Tour], recommendations: [Tour])
 }
 
 class MainViewModel: MainViewModelProtocol {
@@ -22,11 +22,11 @@ class MainViewModel: MainViewModelProtocol {
     var forCategories: [Category] {
         categories
     }
-    var toursForGaleries: [Galery] {
+    var toursForGaleries: [Tour] {
         galeries
     }
     
-    var toursForRecommendations: [Galery] {
+    var toursForRecommendations: [Tour] {
         recommendations
     }
     
@@ -46,10 +46,10 @@ class MainViewModel: MainViewModelProtocol {
     }
     
     private let categories: [Category]
-    private let galeries: [Galery]
-    private let recommendations: [Galery]
+    private let galeries: [Tour]
+    private let recommendations: [Tour]
     
-    required init(categories: [Category], galeries: [Galery], recommendations: [Galery]) {
+    required init(categories: [Category], galeries: [Tour], recommendations: [Tour]) {
         self.categories = categories
         self.galeries = galeries
         self.recommendations = recommendations

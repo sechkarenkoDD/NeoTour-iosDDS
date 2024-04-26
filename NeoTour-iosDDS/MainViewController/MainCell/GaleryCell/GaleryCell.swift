@@ -54,15 +54,15 @@ class GaleryCell: UICollectionViewCell {
             make.leading.trailing.top.bottom.equalToSuperview()
         }
         
-        title.snp.makeConstraints { make in
-            make.bottom.equalTo(image).inset(-16)
-            make.leading.equalTo(image).inset(-12)
-            make.width.equalTo(-30)
-        }
-        
         blackoutBackground.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalTo(image)
             make.height.equalTo(56)
+        }
+        
+        title.snp.makeConstraints { make in
+            make.bottom.equalTo(blackoutBackground).inset(16)
+            make.leading.trailing.equalTo(blackoutBackground).inset(12)
+            make.width.equalTo(-30)
         }
     }
     

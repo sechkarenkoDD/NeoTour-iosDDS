@@ -15,7 +15,7 @@ protocol CategoryCellViewModelProtocol {
 class CategoryCellViewModel: CategoryCellViewModelProtocol {
     
     var title: String {
-        category.title
+        category.name
     }
     
     private let category: Category

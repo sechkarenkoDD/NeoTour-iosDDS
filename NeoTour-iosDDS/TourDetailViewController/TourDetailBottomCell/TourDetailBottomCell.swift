@@ -6,18 +6,18 @@
 //
 
 import UIKit
+import SnapKit
 
 class TourDetailBottomCell: UITableViewCell {
     
-    var delegate: BookButtonDelegate?
     
-    static let reuseIdentifier = "BottomTableViewCell"
+    static let id = "TourDetailBottomCell"
     
-    var viewModel: TourDetailsBottomCollectionCellViewModelProtocol! {
+    var viewModel: TourDetailBottomCellViewModelProtocol! {
         didSet {
             tourNameLabel.text = viewModel.title
             tourLocationLabel.text = viewModel.location
-            tourDescriptionLabel.attributedText = viewModel.description.createLine(spacing: 7)
+            tourDescriptionLabel.text = viewModel.description
             configureComments()
         }
     }
@@ -25,15 +25,13 @@ class TourDetailBottomCell: UITableViewCell {
     private lazy var tourNameLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont(name: "SFProDisplay-Black", size: 24)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
     private lazy var tourLocationLabel: UILabel = {
         let lbl = UILabel()
-        lbl.addImage(image: UIImage(named: "locationMark")!)
+//        lbl.addImage(image: UIImage(named: "locationMark")!)
         lbl.font = UIFont(name: "SFProDisplay-Medium", size: 12)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
@@ -41,7 +39,6 @@ class TourDetailBottomCell: UITableViewCell {
         let lbl = UILabel()
         lbl.text = "Description"
         lbl.font = UIFont(name: "SFProDisplay-Semibold", size: 20)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
@@ -50,7 +47,6 @@ class TourDetailBottomCell: UITableViewCell {
         let lbl = UILabel()
         lbl.font = UIFont(name: "SFProDisplay-Regular", size: 16)
         lbl.numberOfLines = 0
-        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
@@ -58,7 +54,6 @@ class TourDetailBottomCell: UITableViewCell {
         let lbl = UILabel()
         lbl.text = "Reviews"
         lbl.font = UIFont(name: "SFProDisplay-Semibold", size: 20)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
@@ -68,7 +63,6 @@ class TourDetailBottomCell: UITableViewCell {
         stackView.spacing = 24
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -78,7 +72,6 @@ class TourDetailBottomCell: UITableViewCell {
         button.backgroundColor = .accentColor
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 25
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -86,7 +79,8 @@ class TourDetailBottomCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
         contentView.layer.cornerRadius = 36
-        bookButton.addTarget(self, action: #selector(bookButtonTapped), for: .touchUpInside)
+        setupTargetAction()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -102,15 +96,6 @@ class TourDetailBottomCell: UITableViewCell {
         
     }
     
-    @objc func bookButtonTapped() {
-        //        let vc = BookView()
-        //        vc.viewModel = viewModel.getDataForBookView()
-        //        vc.modalPresentationStyle = .formSheet // или .pageSheet
-        //        self.present(vc, animated: true)
-        delegate?.bookButtonDidTap()
-        
-    }
-    
     private func setupLayout() {
         contentView.addSubview(tourNameLabel)
         contentView.addSubview(tourLocationLabel)
@@ -120,43 +105,65 @@ class TourDetailBottomCell: UITableViewCell {
         contentView.addSubview(reviewsStackView)
         contentView.addSubview(bookButton)
         
+        tourNameLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.height.equalTo(29)
+        }
         
-        NSLayoutConstraint.activate([
-            
-            tourNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            tourNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            tourNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            tourNameLabel.heightAnchor.constraint(equalToConstant: 29),
-            
-            tourLocationLabel.topAnchor.constraint(equalTo: tourNameLabel.bottomAnchor, constant: 12),
-            tourLocationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            tourLocationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            tourLocationLabel.heightAnchor.constraint(equalToConstant: 14),
-            
-            tourDescriptionTitleLabel.topAnchor.constraint(equalTo: tourLocationLabel.bottomAnchor, constant: 32),
-            tourDescriptionTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            tourDescriptionTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            tourDescriptionTitleLabel.heightAnchor.constraint(equalToConstant: 24),
-            
-            tourDescriptionLabel.topAnchor.constraint(equalTo: tourDescriptionTitleLabel.bottomAnchor, constant: 12),
-            tourDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            tourDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            tourReviewsTitleLabel.topAnchor.constraint(equalTo: tourDescriptionLabel.bottomAnchor, constant: 32),
-            tourReviewsTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            tourReviewsTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            
-            reviewsStackView.topAnchor.constraint(equalTo: tourReviewsTitleLabel.bottomAnchor, constant: 16),
-            reviewsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            reviewsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            bookButton.topAnchor.constraint(equalTo: reviewsStackView.bottomAnchor, constant: 50),
-            bookButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            bookButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            bookButton.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            bookButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        tourLocationLabel.snp.makeConstraints { make in
+            make.top.equalTo(tourNameLabel).inset(12)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.height.equalTo(29)
+        }
+        
+        tourDescriptionTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(tourLocationLabel).inset(32)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.height.equalTo(24)
+        }
+        
+        tourDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(tourDescriptionTitleLabel).inset(12)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+        }
+        
+        tourReviewsTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(tourDescriptionLabel).inset(32)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+        }
+        
+        reviewsStackView.snp.makeConstraints { make in
+            make.top.equalTo(tourReviewsTitleLabel).inset(16)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+        }
+        
+        bookButton.snp.makeConstraints { make in
+            make.top.equalTo(reviewsStackView).inset(50)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.bottom.equalToSuperview()
+            make.height.height.equalTo(50)
+        }
+    }
+    
+    private func setupTargetAction() {
+        bookButton.addTarget(self, action: #selector(bookButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func bookButtonTapped() {
+        //        let vc = BookView()
+        //        vc.viewModel = viewModel.getDataForBookView()
+        //        vc.modalPresentationStyle = .formSheet // или .pageSheet
+        //        self.present(vc, animated: true)
+//        delegate?.bookButtonDidTap()
+        
     }
     
     func configureComments() {
@@ -167,8 +174,8 @@ class TourDetailBottomCell: UITableViewCell {
         }
         // Добавляем новые отзывы
         for review in viewModel.comments {
-            let reviewLabel = CommentsView(configuration: review)
-            reviewsStackView.addArrangedSubview(reviewLabel)
+//            let reviewLabel = CommentsView(configuration: review)
+//            reviewsStackView.addArrangedSubview(reviewLabel)
         }
     }
     

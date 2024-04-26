@@ -13,6 +13,7 @@ class OnboardingViewController: UIViewController {
     var viewModel: OnboardingViewModelProtocol! {
         didSet {
             image.image = UIImage(named: viewModel.imageName)
+            viewModel.fetchCategories()
         }
     }
     

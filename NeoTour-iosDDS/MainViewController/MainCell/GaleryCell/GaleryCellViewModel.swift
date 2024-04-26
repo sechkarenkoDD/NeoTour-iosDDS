@@ -10,7 +10,7 @@ import Foundation
 protocol GaleryCellViewModeProtocol {
     var image: Data? { get }
     var title: String { get }
-    init(galery: Galery)
+    init(galery: Tour)
 }
 
 class GaleryCellViewModel: GaleryCellViewModeProtocol {
@@ -22,9 +22,9 @@ class GaleryCellViewModel: GaleryCellViewModeProtocol {
         galery.title
     }
     
-    private let galery: Galery
+    private let galery: Tour
     
-    required init(galery: Galery) {
+    required init(galery: Tour) {
         self.galery = galery
     }
 }
