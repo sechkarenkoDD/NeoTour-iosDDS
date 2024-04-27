@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.register(CategoriesCell.self, forCellWithReuseIdentifier: CategoriesCell.id )
-        collectionView.register(GaleryCell.self, forCellWithReuseIdentifier: GaleryCell.id)
+        collectionView.register(TourCell.self, forCellWithReuseIdentifier: TourCell.id)
         
         collectionView.register(
             HeaderView.self,
@@ -224,9 +224,9 @@ class MainViewController: UIViewController {
                     fatalError("Invalid item type for galeryTour section")
                 }
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: GaleryCell.id,
+                    withReuseIdentifier: TourCell.id,
                     for: indexPath
-                ) as! GaleryCell
+                ) as! TourCell
                 cell.viewModel = self.viewModel.getDataForGaleryCell(at: indexPath)
                 return cell
             case .recommendedTour:
@@ -234,9 +234,9 @@ class MainViewController: UIViewController {
                     fatalError("Invalid item type for recommendedTour section")
                 }
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: GaleryCell.id,
+                    withReuseIdentifier: TourCell.id,
                     for: indexPath
-                ) as! GaleryCell
+                ) as! TourCell
                 cell.viewModel = self.viewModel.getDataForRecommendedCell(at: indexPath)
                 return cell
             }

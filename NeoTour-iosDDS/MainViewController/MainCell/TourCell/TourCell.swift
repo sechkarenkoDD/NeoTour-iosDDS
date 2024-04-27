@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-class GaleryCell: UICollectionViewCell {
+class TourCell: UICollectionViewCell {
     static let id = "GaleryCell"
     
-    var viewModel: GaleryCellViewModeProtocol! {
+    var viewModel: TourCellViewModeProtocol! {
         didSet {
             title.text = viewModel.title
             guard let imageData = viewModel.image else { fatalError("imageDara for cell is failed") }

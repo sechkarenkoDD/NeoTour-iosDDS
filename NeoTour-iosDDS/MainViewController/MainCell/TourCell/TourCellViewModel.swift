@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol GaleryCellViewModeProtocol {
+protocol TourCellViewModeProtocol {
     var image: Data? { get }
     var title: String { get }
     init(tour: Tour)
 }
 
-class GaleryCellViewModel: GaleryCellViewModeProtocol {
+class TourCellViewModel: TourCellViewModeProtocol {
     var image: Data? {
         ImageManager.shared.fetchImageData(from: tour.tourPhoto)
     }

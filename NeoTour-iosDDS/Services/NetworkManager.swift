@@ -42,7 +42,7 @@ extension NetworkManager {
                 completion(.failure(.noData))
                 return
             }
-            
+//            print(String(data: data, encoding: String.Encoding.utf8))
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase

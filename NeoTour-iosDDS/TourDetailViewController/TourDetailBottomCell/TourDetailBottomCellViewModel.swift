@@ -11,7 +11,7 @@ protocol TourDetailBottomCellViewModelProtocol {
     var title: String { get }
     var location: String { get }
     var description: String { get }
-    var comments: [Comment] { get }
+    var comments: [Review] { get }
     init(tour: Tour)
 }
 
@@ -29,7 +29,7 @@ class TourDetailBottomCellViewModel: TourDetailBottomCellViewModelProtocol {
         tour.description
     }
     
-    var comments: [Comment] {
+    var comments: [Review] {
         tour.reviews
     }
     

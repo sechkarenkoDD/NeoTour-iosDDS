@@ -12,9 +12,9 @@ class ImageManager {
     
     private init() {}
     
-    func fetchImageData(from url: URL?) -> Data? {
-        guard let url = url else { return nil }
-        guard let imageData = try? Data(contentsOf: url) else { return nil }
+    func fetchImageData(from stringURL: String) -> Data? {
+        guard let url = URL(string: stringURL) else { fatalError() }
+        guard let imageData = try? Data(contentsOf: url) else { fatalError() }
         return imageData
     }
 }
