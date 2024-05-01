@@ -173,10 +173,10 @@ class TourDetailBottomCell: UITableViewCell {
             $0.removeFromSuperview()
         }
         // Добавляем новые отзывы
-        for review in viewModel.comments {
+//        for review in viewModel.reviews {
 //            let reviewLabel = CommentsView(configuration: review)
 //            reviewsStackView.addArrangedSubview(reviewLabel)
-        }
+//        }
     }
     
     

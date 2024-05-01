@@ -89,7 +89,7 @@ class MainViewController: UIViewController {
     
     private func generateCategoriesLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.25),
+            widthDimension: .fractionalWidth(0.27),
             heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -100,7 +100,8 @@ class MainViewController: UIViewController {
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
-            subitems: [item]
+            repeatingSubitem: item,
+            count: 4
         )
         
         let section = NSCollectionLayoutSection(group: group)
@@ -218,6 +219,7 @@ class MainViewController: UIViewController {
                     fatalError("Failed to dequeue a cell of type categoriesCell")
                 }
                 cell.viewModel = self.viewModel.getDataForCategoriesCell(at: indexPath)
+//                self.mainCollectionView.reloadData()
                 return cell
             case .galeryTour:
                 guard case .galery(_) = item else {
@@ -228,6 +230,7 @@ class MainViewController: UIViewController {
                     for: indexPath
                 ) as! TourCell
                 cell.viewModel = self.viewModel.getDataForGaleryCell(at: indexPath)
+//                self.mainCollectionView.reloadData()
                 return cell
             case .recommendedTour:
                 guard case .recommended(_) = item else {
@@ -238,6 +241,7 @@ class MainViewController: UIViewController {
                     for: indexPath
                 ) as! TourCell
                 cell.viewModel = self.viewModel.getDataForRecommendedCell(at: indexPath)
+//                self.mainCollectionView.reloadData()
                 return cell
             }
             

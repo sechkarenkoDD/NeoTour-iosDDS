@@ -8,18 +8,28 @@
 import Foundation
 
 protocol TourCellViewModeProtocol {
-    var image: Data? { get }
     var title: String { get }
+    func getImage() async -> Data
     init(tour: Tour)
 }
 
 class TourCellViewModel: TourCellViewModeProtocol {
-    var image: Data? {
-        ImageManager.shared.fetchImageData(from: tour.tourPhoto)
-    }
     
     var title: String {
         tour.name
+    }
+    
+    func getImage() async -> Data {
+        
+        var data = Data()
+        
+        do {
+            let imageData = try await ImageManager.shared.fetchImage(tour.tourPhoto)
+            data = imageData
+        } catch {
+            print(error)
+        }
+        return data
     }
     
     private let tour: Tour

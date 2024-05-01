@@ -13,8 +13,10 @@ class TourDetailTopCell: UITableViewCell {
     
     var viewModel: TourDetailTopCellViewModel! {
         didSet {
-            guard let imageData = viewModel.image else { fatalError("imageDara for cell is failed") }
-            pictureImageView.image = UIImage(data: imageData)
+            Task {
+                let imageData = await viewModel.getImage()
+                pictureImageView.image = UIImage(data: imageData)
+            }
         }
     }
     

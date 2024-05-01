@@ -261,8 +261,8 @@
 		9098EF952BD12F6E0059B51D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9098EF932BD12F660059B51D /* ImageManager.swift */,
 				90B607832BD831C0006F7D6E /* NetworkManager.swift */,
+				9098EF932BD12F660059B51D /* ImageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

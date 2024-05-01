@@ -8,16 +8,8 @@
 import Foundation
 
 struct Category: Hashable, Decodable {
-    var id: Int
-    var name: String
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: Category, rhs: Category) -> Bool {
-        return lhs.id == rhs.id
-    }
+    let id: Int
+    let name: String
     
     static func getCategories() -> [Category] {
         let categories = [

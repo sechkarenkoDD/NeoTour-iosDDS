@@ -14,8 +14,10 @@ class TourCell: UICollectionViewCell {
     var viewModel: TourCellViewModeProtocol! {
         didSet {
             title.text = viewModel.title
-            guard let imageData = viewModel.image else { fatalError("imageDara for cell is failed") }
-            image.image = UIImage(data: imageData)
+            Task {
+                let imageData = await viewModel.getImage()
+                image.image = UIImage(data: imageData)
+            }
         }
     }
     
@@ -62,7 +64,7 @@ class TourCell: UICollectionViewCell {
         title.snp.makeConstraints { make in
             make.bottom.equalTo(blackoutBackground).inset(16)
             make.leading.trailing.equalTo(blackoutBackground).inset(12)
-            make.width.equalTo(-30)
+//            make.width.equalTo(-30)
         }
     }
     

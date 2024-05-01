@@ -8,12 +8,13 @@
 import Foundation
 
 
+enum NetworkError: Error {
+    case invalidURL
+    case noData
+    case invalidResponse
+}
+
 class NetworkManager {
-    
-    enum NetworkError: Error {
-        case invalidURL
-        case noData
-    }
     
     static let shered = NetworkManager()
     private init() {}
@@ -53,9 +54,11 @@ extension NetworkManager {
                 }
             } catch let error {
                 print(error.localizedDescription)
+                debugPrint(error)
             }
             
         }.resume()
     }
 }
+
 
