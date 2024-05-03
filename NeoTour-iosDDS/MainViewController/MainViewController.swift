@@ -37,8 +37,9 @@ class MainViewController: UIViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.delegate = self
         
-        collectionView.register(CategoriesCell.self, forCellWithReuseIdentifier: CategoriesCell.id )
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.id )
         collectionView.register(TourCell.self, forCellWithReuseIdentifier: TourCell.id)
+        collectionView.register(RecommendationCell.self, forCellWithReuseIdentifier: RecommendationCell.id)
         
         collectionView.register(
             HeaderView.self,
@@ -213,13 +214,12 @@ class MainViewController: UIViewController {
                     fatalError("Invalid item type for categoriesTour section")
                 }
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: CategoriesCell.id,
+                    withReuseIdentifier: CategoryCell.id,
                     for: indexPath
-                ) as? CategoriesCell else {
+                ) as? CategoryCell else {
                     fatalError("Failed to dequeue a cell of type categoriesCell")
                 }
                 cell.viewModel = self.viewModel.getDataForCategoriesCell(at: indexPath)
-//                self.mainCollectionView.reloadData()
                 return cell
             case .galeryTour:
                 guard case .galery(_) = item else {
@@ -230,18 +230,16 @@ class MainViewController: UIViewController {
                     for: indexPath
                 ) as! TourCell
                 cell.viewModel = self.viewModel.getDataForGaleryCell(at: indexPath)
-//                self.mainCollectionView.reloadData()
                 return cell
             case .recommendedTour:
                 guard case .recommended(_) = item else {
                     fatalError("Invalid item type for recommendedTour section")
                 }
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: TourCell.id,
+                    withReuseIdentifier: RecommendationCell.id,
                     for: indexPath
-                ) as! TourCell
+                ) as! RecommendationCell
                 cell.viewModel = self.viewModel.getDataForRecommendedCell(at: indexPath)
-//                self.mainCollectionView.reloadData()
                 return cell
             }
             
@@ -282,7 +280,34 @@ class MainViewController: UIViewController {
 
 
 extension MainViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = Section.allCases[indexPath.section]
+        
+        let item = dataSource.itemIdentifier(for: indexPath)
+        
+        switch section {
+        case .categoriesTour:
+            if case .category(_) = item {
+                if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+                    cell.titleCategory.font = UIFont(name: "SFProDisplay-Bold", size: 16)
+                    cell.titleCategory.textColor = .accentColor
+                    cell.pointUnderSelectedTitle.isHidden = false
+                }
+            }
+        case .galeryTour:
+            if case let .galery(data) = item {
+                let tourDetailViewController = TourDetailViewController()
+                tourDetailViewController.viewModel = viewModel.getDataForDetailView(tour: data)
+                navigationController?.pushViewController(tourDetailViewController, animated: true)
+            }
+        case .recommendedTour:
+            if case let .recommended(data) = item {
+                let tourDetailViewController = TourDetailViewController()
+                tourDetailViewController.viewModel = viewModel.getDataForDetailView(tour: data)
+                navigationController?.pushViewController(tourDetailViewController, animated: true)
+            }
+        }
+    }
 }
 
 

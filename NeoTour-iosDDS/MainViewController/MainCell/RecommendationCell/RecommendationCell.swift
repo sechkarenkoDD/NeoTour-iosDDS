@@ -1,15 +1,16 @@
 //
-//  GaleryCell.swift
+//  RecommendationCell.swift
 //  NeoTour-iosDDS
 //
-//  Created by Dmitry on 13.04.2024.
+//  Created by Dmitry on 01.05.2024.
 //
 
 import UIKit
 import SnapKit
 
-class TourCell: UICollectionViewCell {
-    static var id = "TourCell"
+class RecommendationCell: UICollectionViewCell {
+    
+    static var id = "RecommendationCell"
     
     var viewModel: TourCellViewModeProtocol! {
         didSet {
@@ -21,7 +22,7 @@ class TourCell: UICollectionViewCell {
         }
     }
     
-    private var title = UILabel(size: 20)
+    private var title = UILabel(size: 14)
     
     private var image: UIImageView = {
         let image = UIImageView()
@@ -49,7 +50,7 @@ class TourCell: UICollectionViewCell {
         
         blackoutBackground.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalTo(image)
-            make.height.equalTo(56)
+            make.height.equalTo(41)
         }
         
         title.snp.makeConstraints { make in
@@ -61,4 +62,5 @@ class TourCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

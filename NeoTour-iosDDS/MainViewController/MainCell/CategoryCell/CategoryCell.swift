@@ -1,5 +1,5 @@
 //
-//  CategoriesCell.swift
+//  CategoryCell.swift
 //  NeoTour-iosDDS
 //
 //  Created by Dmitry on 13.04.2024.
@@ -8,16 +8,16 @@
 import UIKit
 import SnapKit
 
-class CategoriesCell: UICollectionViewCell {
+class CategoryCell: UICollectionViewCell {
     static let id = "CategoriesCell"
     
     var viewModel: CategoryCellViewModelProtocol! {
         didSet {
-            titleCategories.text = viewModel.title
+            titleCategory.text = viewModel.title
         }
     }
     
-    let titleCategories: UILabel = {
+    let titleCategory: UILabel = {
         let title = UILabel()
         title.backgroundColor = .clear
         title.textAlignment = .center
@@ -40,17 +40,17 @@ class CategoriesCell: UICollectionViewCell {
     }
     
     private func commonInit() {
-        addSubview(titleCategories)
+        addSubview(titleCategory)
         addSubview(pointUnderSelectedTitle)
         
-        titleCategories.snp.makeConstraints { make in
+        titleCategory.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().inset(11)
         }
         
         pointUnderSelectedTitle.snp.makeConstraints { make in
-            make.centerX.equalTo(titleCategories)
-            make.top.equalTo(titleCategories)
+            make.centerX.equalTo(titleCategory)
+            make.bottom.equalTo(titleCategory).inset(-10)
             make.height.width.equalTo(7)
         }
     }

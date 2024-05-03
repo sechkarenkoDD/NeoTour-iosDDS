@@ -14,6 +14,7 @@ protocol MainViewModelProtocol {
     func getDataForCategoriesCell(at indexPath: IndexPath) -> CategoryCellViewModelProtocol
     func getDataForGaleryCell(at indexPath: IndexPath) -> TourCellViewModeProtocol
     func getDataForRecommendedCell(at indexPath: IndexPath) -> TourCellViewModeProtocol
+    func getDataForDetailView(tour: Tour) -> TourDetailViewModelProtocol
     init(categories: [Category], tours: [Tour], recommendations: [Tour])
 }
 
@@ -43,6 +44,10 @@ class MainViewModel: MainViewModelProtocol {
     func getDataForRecommendedCell(at indexPath: IndexPath) -> TourCellViewModeProtocol {
         let recommended = recommendations[indexPath.item]
         return TourCellViewModel(tour: recommended)
+    }
+    
+    func getDataForDetailView(tour: Tour) -> TourDetailViewModelProtocol {
+        TourDetailViewModel(tour: tour)
     }
     
     private let categories: [Category]
