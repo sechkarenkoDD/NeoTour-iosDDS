@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TourDetailViewController: UIViewController {
     
@@ -57,14 +58,18 @@ extension TourDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: TourDetailTopCell.id, for: indexPath) as! TourDetailTopCell
-//            cell.viewModel = viewModel.getDataForTopCell()
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: TourDetailTopCell.id,
+                for: indexPath
+            ) as! TourDetailTopCell
+            cell.viewModel = viewModel.getDataForTopCell() as? TourDetailTopCellViewModel
             return cell
         } else {
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: TourDetailBottomCell.id, for: indexPath) as! TourDetailBottomCell
-
-            cell.viewModel = viewModel.getDataForBottomCell()
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: TourDetailBottomCell.id,
+                for: indexPath
+            ) as! TourDetailBottomCell
+            cell.viewModel = viewModel.getDataForBottomCell() as? TourDetailBottomCellViewModel
             cell.selectionStyle = .none
             return cell
         }
@@ -88,4 +93,27 @@ extension TourDetailViewController: UITableViewDelegate {
     }
 }
 
+//extension TourDetailViewController: BookButtonDelegate {
+//    func bookButtonDidTap() {
+//        let vc = BookView()
+//        vc.viewModel = viewModel.getDataForBookView()
+//        vc.modalPresentationStyle = .custom
+//        vc.transitioningDelegate = self
+//        vc.onDismiss = { [weak self] in
+//            self?.showAlert()
+//            
+//        }
+//        present(vc, animated: true)
+//    }
+//    
+//    
+//}
 
+//extension TourDetailViewController: UIViewControllerTransitioningDelegate {
+//    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+//        let presentationController = PartialSizePresentationController(presentedViewController: presented, presenting: presenting)
+//        // Здесь ты можешь настроить высоту, если хочешь
+//        presentationController.presentedHeight = 505 // например
+//        return presentationController
+//    }
+//}

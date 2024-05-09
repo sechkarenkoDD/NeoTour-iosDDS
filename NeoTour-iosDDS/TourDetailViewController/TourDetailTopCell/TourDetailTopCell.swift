@@ -20,12 +20,13 @@ class TourDetailTopCell: UITableViewCell {
         }
     }
     
-    let pictureImageView: UIImageView = {
+    private let pictureImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
+    
     private lazy var bottomBorder: UIView = {
         let view = UIView()
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -41,18 +42,18 @@ class TourDetailTopCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        contentView.addSubview(pictureImageView)
-        contentView.addSubview(bottomBorder)
+        addSubview(pictureImageView)
+        addSubview(bottomBorder)
         
         pictureImageView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
         }
         
         bottomBorder.snp.makeConstraints { make in
-            make.leading.equalTo(pictureImageView).inset(-2)
-            make.trailing.equalTo(pictureImageView).inset(2)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(41)
         }
     }
     

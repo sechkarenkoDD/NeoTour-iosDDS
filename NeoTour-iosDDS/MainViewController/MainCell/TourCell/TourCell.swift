@@ -39,7 +39,7 @@ class TourCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(image)
+        addSubview(image)
         image.addSubview(blackoutBackground)
         image.addSubview(title)
         

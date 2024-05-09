@@ -4,9 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SF-Pro-Display-Black.otf</string>
-		<string>SF-Pro-Display-Medium.otf</string>
-		<string>SF-Pro-Display-Light.otf</string>
+		<string>SFProDisplay-Black.otf</string>
+		<string>SFProDisplay-Medium.otf</string>
+		<string>SFProDisplay-Light.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

@@ -37,25 +37,3 @@ struct Tour: Hashable, Decodable {
     }
     
 }
-
-struct Review: Hashable, Decodable {
-    let id: Int
-    let userPhoto: String
-    let userName: String
-    let comment: String
-
-    static func getReviews() -> [Review] {
-        return [
-            Review(id: 0,
-                   userPhoto: "userImage",
-                   userName: "Tom",
-                   comment: "That was such a nice place. The most beautiful place I’ve ever seen. My advice to everyone not to forget to take warm coa"),
-            Review(id: 1,
-                   userPhoto: "userImage",
-                   userName: "Tom",
-                   comment: "That was such a nice place. The most beautiful place I’ve ever seen. My advice to everyone not to forget to take warm coa")
-        ]
-    }
-}
-
-
